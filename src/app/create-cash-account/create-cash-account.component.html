@@ -1,0 +1,98 @@
+<div class="container cash-account">
+  <form  [formGroup]="cashAccountForm1" (ngSubmit)="onSubmit()">
+  <div class="owners-info">
+    <div class="alert alert-primary" role="alert">
+      <strong>Owner Information</strong>
+    </div>
+    <div class="owners-form">
+        <div class="form-group row element">
+          <label  class="col-sm-4 col-form-label">Owner/Principle Name <span class="mandatory">* </span> </label>
+          <div class="col-sm-8">
+            <input type="text"  formControlName="ownerName"
+                   class="form-control"
+                   [ngClass]="{ 'is-invalid': (submitted && f['ownerName'].errors) || f['ownerName']?.invalid && (f['ownerName'].dirty || f['ownerName'].touched)}" placeholder="Enter Owner/Principle Name">
+            <div *ngIf="submitted && f['ownerName'].errors" class="invalid-feedback">
+              <div *ngIf="f['ownerName'].errors.required">Owner/Principle Name is required</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="form-group row element">
+          <label for="inputPassword" class="col-sm-4 col-form-label">Phone <span class="mandatory">* </span>  </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control"  placeholder="Enter Phone">
+          </div>
+        </div>
+        <div class="form-group row element">
+          <label for="inputPassword" class="col-sm-4 col-form-label">Email <span class="mandatory">* </span>  </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="Enter Email">
+          </div>
+        </div>
+        <div class="form-group row element">
+          <label for="inputPassword" class="col-sm-4 col-form-label">Fax </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="inputPassword" placeholder="Enter Fax">
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="business-info">
+    <div class="alert alert-primary" role="alert">
+      <strong> Business Information </strong>
+    </div>
+    <div class="owners-form">
+        <div class="form-group row element">
+          <label  class="col-sm-4 col-form-label">Company Legal Name <span class="mandatory">* </span> </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="Enter Company Legal Name">
+          </div>
+        </div>
+        <div class="form-group row element">
+          <label for="inputPassword" class="col-sm-4 col-form-label">Doing Business as name <span class="mandatory">* </span> </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control"  placeholder="Enter Doing Business as name">
+          </div>
+        </div>
+        <div class="form-group row element">
+          <label for="inputPassword" class="col-sm-4 col-form-label">Business Phone <span class="mandatory">* </span> </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="Enter Business Phone">
+          </div>
+        </div>
+        <div class="form-group row element">
+          <label for="inputPassword" class="col-sm-4 col-form-label">Business Email <span class="mandatory">* </span>  </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="Enter Business Email">
+          </div>
+        </div>
+        <div class="form-group row element">
+          <label for="inputPassword" class="col-sm-4 col-form-label">Account Type <span class="mandatory">* </span>  </label>
+          <div class="col-sm-8">
+            <select class="form-control" >
+              <option>Select Account Type</option>
+              <option>Savings</option>
+              <option>Current</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row element">
+          <label for="inputPassword" class="col-sm-4 col-form-label">Account# </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="Enter Account#">
+          </div>
+        </div>
+        <div class="form-group row element">
+          <label for="inputPassword" class="col-sm-4 col-form-label">FAX </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="Enter Fax">
+          </div>
+        </div>
+    </div>
+  </div >
+  <div style="padding-left: 800px">  <button class="btn btn-primary float-right" >Next</button>
+  </div>
+  </form>
+</div>
