@@ -17,27 +17,25 @@ export class CreateCashAccount3Component implements OnInit {
   ngOnInit(): void {
     this.cashAccountForm1 = this.formBuilder.group(
       {
-        ownerName : ['', Validators.required],
-        fullname: ['', Validators.required],
-        username: [
-          '',
-          [
-            Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(20)
-          ]
-        ],
-        email: ['', [Validators.required, Validators.email]],
-        password: [
-          '',
-          [
-            Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(40)
-          ]
-        ],
-        confirmPassword: ['', Validators.required],
-        acceptTerms: [false, Validators.requiredTrue]
+        dealerInfo2018HVACPurchases: ['', Validators.required],
+        dealerInfo2018YorkPurchases: ['', Validators.required],
+        dealerInfo2018TotalYorkPurchases: ['', Validators.required],
+        dealerInfo2019YorkPurchases: ['', Validators.required],
+        hvacPrimaryBrand: ['', Validators.required],
+        hvacSecondaryBrand: ['', Validators.required],
+        hvacOther: ['', Validators.required],
+        businessMixResidentialReplacement: ['', Validators.required],
+        businessMixResidentialNewConstruction: ['', Validators.required],
+        businessMixCommercial: ['', Validators.required],
+        purchaseRequired: ['', Validators.required],
+        licenseAccept: ['', Validators.required],
+        epaCertificationTo: ['', Validators.required],
+        epaCertification: ['', Validators.required],
+        notValidEPA: ['', Validators.required],
+        epaExpirationDate: ['', Validators.required],
+        contractorsLicense: ['', Validators.required],
+        contractorsExpirationDate: ['', Validators.required],
+        additionalEmailNotification: ['', Validators.required],
       }
     );
   }

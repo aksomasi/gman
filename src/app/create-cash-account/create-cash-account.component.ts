@@ -18,7 +18,18 @@ export class CreateCashAccountComponent implements OnInit {
   ngOnInit(): void {
     this.cashAccountForm1 = this.formBuilder.group(
       {
-        ownerName : ['', Validators.required]
+        companyLegalName : ['', Validators.required],
+        businessName : ['', Validators.required],
+        businessPhone : ['', Validators.required],
+        businessEmail : ['', Validators.required],
+        businessAccountType : ['', Validators.required],
+        businessAccount : ['', Validators.required],
+        businessFax : [''],
+        ownerName : ['', Validators.required],
+        ownerPhone : ['', Validators.required],
+        ownerEmail : ['', Validators.required],
+        ownerFax : [''],
+
       }
     );
   }
@@ -29,8 +40,7 @@ export class CreateCashAccountComponent implements OnInit {
   onSubmit(){
     this.submitted = true;
     console.log(this.cashAccountForm1)
-    if(this.cashAccountForm1.valid){
       this.router.navigateByUrl('create-cash2',{skipLocationChange: true})
-    }
+
   }
 }

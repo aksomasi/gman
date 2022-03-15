@@ -7,6 +7,9 @@ import { CreateCashAccountComponent } from './create-cash-account/create-cash-ac
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CreateCashAccount2Component } from './create-cash-account2/create-cash-account2.component';
 import { CreateCashAccount3Component } from './create-cash-account3/create-cash-account3.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { CreateCashAccount3Component } from './create-cash-account3/create-cash-
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
-    AppRoutingModule
+    MatAutocompleteModule,
+    MatInputModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

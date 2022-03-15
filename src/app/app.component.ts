@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AddressService} from "./address.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'good-man-frontend';
+  addressOptions = <any>[];
+  address: string = '';
+
+  constructor(private _commonService: AddressService) { }
+
+  ngOnInit() {
+  }
+
+  onChange(term: any) {
+
+  }
 }
