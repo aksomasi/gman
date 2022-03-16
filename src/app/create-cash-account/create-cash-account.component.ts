@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {CashAccountServiceService} from "../cash-account-service.service";
 
 @Component({
   selector: 'app-create-cash-account',
@@ -13,7 +14,8 @@ export class CreateCashAccountComponent implements OnInit {
   cashAccountForm1: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private router: Router,
+  private cashAccountServiceService: CashAccountServiceService) {}
 
   ngOnInit(): void {
     this.cashAccountForm1 = this.formBuilder.group(
@@ -40,7 +42,12 @@ export class CreateCashAccountComponent implements OnInit {
   onSubmit(){
     this.submitted = true;
     console.log(this.cashAccountForm1)
+    if(this.cashAccountForm1.valid){
+      const data = this.cashAccountServiceService.getTotalData();
+      data.form1 = this.cashAccountForm1.value;
+      this.cashAccountServiceService.setTotalData(data)
       this.router.navigateByUrl('create-cash2',{skipLocationChange: true})
+    }
 
   }
 }

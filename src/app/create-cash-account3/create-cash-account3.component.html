@@ -20,25 +20,42 @@
               <div class="col-sm-4">
                 <div class="input-group mb-3">
                   <span class="input-group-text">$</span>
-                  <input class="form-control" type="text" formControlName="ownerName">
-                </div>              </div>
-              <div *ngIf="submitted && f['ownerName'].errors" class="invalid-feedback">
-                <div *ngIf="f['ownerName'].errors['required']">Owner/Principle Name is required</div>
+                  <input class="form-control" type="text" formControlName="dealerInfo2018HVACPurchases"
+                         [ngClass]="{ 'is-invalid': (submitted && f['dealerInfo2018HVACPurchases'].errors) || f['dealerInfo2018HVACPurchases']?.invalid && (f['dealerInfo2018HVACPurchases'].dirty || f['dealerInfo2018HVACPurchases'].touched)}" >
+                </div>
+              </div>
+              <div *ngIf="submitted && f['dealerInfo2018HVACPurchases'].errors" class="invalid-feedback">
+                <div *ngIf="f['dealerInfo2018HVACPurchases'].errors['required']">Dealer Info 2018H VAC Purchases is required</div>
               </div>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="row">
               <label  class="col-sm-3 col-form-label">Primary:  <span class="mandatory">* </span> </label>
+
               <div class="col-sm-3">
-                  <input class="form-control" type="text" formControlName="ownerName">
-                             </div>
+                  <input class="form-control" type="text" formControlName="hvacPrimaryBrand"
+                         [ngClass]="{ 'is-invalid': (submitted && f['hvacPrimaryBrand'].errors) || f['hvacPrimaryBrand']?.invalid && (f['hvacPrimaryBrand'].dirty || f['hvacPrimaryBrand'].touched)}" >
+                                           </div>
+
               <label  class="col-sm-3 col-form-label">Secondary:  <span class="mandatory">* </span> </label>
+
               <div class="col-sm-3">
-                  <input class="form-control" type="text" formControlName="ownerName">
+                  <input class="form-control" type="text" formControlName="hvacSecondaryBrand"
+                         [ngClass]="{ 'is-invalid': (submitted && f['hvacSecondaryBrand'].errors) || f['hvacSecondaryBrand']?.invalid && (f['hvacSecondaryBrand'].dirty || f['hvacSecondaryBrand'].touched)}" >
               </div>
-              <div *ngIf="submitted && f['ownerName'].errors" class="invalid-feedback">
-                <div *ngIf="f['ownerName'].errors['required']">Owner/Principle Name is required</div>
+
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div *ngIf="submitted && f['hvacPrimaryBrand'].errors" class="invalid-feedback">
+                  <div *ngIf="f['hvacPrimaryBrand'].errors['required']">HVAC Primary required</div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div *ngIf="submitted && f['hvacSecondaryBrand'].errors" class="invalid-feedback">
+                  <div *ngIf="f['hvacSecondaryBrand'].errors['required']"> HVAC Secondary  is required</div>
+                </div>
               </div>
             </div>
           </div>
@@ -51,11 +68,12 @@
               <div class="col-sm-4">
                 <div class="input-group mb-3">
                   <span class="input-group-text">$</span>
-                  <input class="form-control" type="text" formControlName="ownerName">
+                  <input class="form-control" type="text" formControlName="dealerInfo2018YorkPurchases"
+                         [ngClass]="{ 'is-invalid': (submitted && f['dealerInfo2018YorkPurchases'].errors) || f['dealerInfo2018YorkPurchases']?.invalid && (f['dealerInfo2018YorkPurchases'].dirty || f['dealerInfo2018YorkPurchases'].touched)}" >
                 </div>
               </div>
-              <div *ngIf="submitted && f['ownerName'].errors" class="invalid-feedback">
-                <div *ngIf="f['ownerName'].errors['required']">Owner/Principle Name is required</div>
+              <div *ngIf="submitted && f['dealerInfo2018YorkPurchases'].errors" class="invalid-feedback">
+                <div *ngIf="f['dealerInfo2018YorkPurchases'].errors['required']">Dealer Info 2018 York Purchases is required</div>
               </div>
             </div>
           </div>
@@ -63,10 +81,11 @@
             <div class="row">
               <label  class="col-sm-3 col-form-label">Other:  <span class="mandatory">* </span> </label>
               <div class="col-sm-6">
-                  <input class="form-control" type="text" formControlName="ownerName">
+                  <input class="form-control" type="text" formControlName="hvacOther"
+                         [ngClass]="{ 'is-invalid': (submitted && f['hvacOther'].errors) || f['hvacOther']?.invalid && (f['hvacOther'].dirty || f['hvacOther'].touched)}" >
               </div>
-              <div *ngIf="submitted && f['ownerName'].errors" class="invalid-feedback">
-                <div *ngIf="f['ownerName'].errors['required']">Owner/Principle Name is required</div>
+              <div *ngIf="submitted && f['hvacOther'].errors" class="invalid-feedback">
+                <div *ngIf="f['hvacOther'].errors['required']">HVAC Other is required</div>
               </div>
             </div>
           </div>
@@ -76,57 +95,72 @@
           <div class="row">
             <div class="col-sm-4">
               <label  class="col-sm col-form-label" style="padding-bottom: 20px;"> 2018 Total York Equipment Purchases </label>
+              <div *ngIf="submitted && f['dealerInfo2018TotalYorkPurchases'].errors" class="invalid-feedback">
+                <div *ngIf="f['dealerInfo2018TotalYorkPurchases'].errors['required']">2018 Total York Equipment Purchases is required</div>
+              </div>
               <label  class="col-sm col-form-label"> 2019 York Equipment Purchase Commitment</label>
-
+              <div *ngIf="submitted && f['dealerInfo2019YorkPurchases'].errors" class="invalid-feedback">
+                <div *ngIf="f['dealerInfo2019YorkPurchases'].errors['required']"> 2019 York Purchases is required</div>
+              </div>
             </div>
+
             <div class="col-sm-2">
               <div class="col-sm-12" style="padding-bottom: 20px;">
                 <div class="input-group mb-3">
                   <span class="input-group-text">$</span>
-                  <input class="form-control" type="text" formControlName="ownerName">
+                  <input class="form-control" type="text" formControlName="dealerInfo2018TotalYorkPurchases"
+                         [ngClass]="{ 'is-invalid': (submitted && f['dealerInfo2018TotalYorkPurchases'].errors) || f['dealerInfo2018TotalYorkPurchases']?.invalid && (f['dealerInfo2018TotalYorkPurchases'].dirty || f['dealerInfo2018TotalYorkPurchases'].touched)}" >
                 </div>
-              </div>
-              <div *ngIf="submitted && f['ownerName'].errors" class="invalid-feedback">
-                <div *ngIf="f['ownerName'].errors['required']">Owner/Principle Name is required</div>
               </div>
               <div class="col-sm-12">
                 <div class="input-group mb-3">
                   <span class="input-group-text">$</span>
-                  <input class="form-control" type="text" formControlName="ownerName">
+                  <input class="form-control" type="text" formControlName="dealerInfo2019YorkPurchases"
+                         [ngClass]="{ 'is-invalid': (submitted && f['dealerInfo2019YorkPurchases'].errors) || f['dealerInfo2019YorkPurchases']?.invalid && (f['dealerInfo2019YorkPurchases'].dirty || f['dealerInfo2019YorkPurchases'].touched)}" >
                 </div>
               </div>
-              <div *ngIf="submitted && f['ownerName'].errors" class="invalid-feedback">
-                <div *ngIf="f['ownerName'].errors['required']">Owner/Principle Name is required</div>
-              </div>
             </div>
+
             <div class="col-sm-6">
               <strong>Business Mix</strong>
 <div class="row">
   <label  class="col-sm-8 col-form-label" >Residential Replacement: </label>
   <div class="col-sm-4" >
     <div class="input-group mb-3">
-      <input class="form-control" type="text" formControlName="ownerName">
+      <input class="form-control" type="text" formControlName="businessMixResidentialReplacement"
+             [ngClass]="{ 'is-invalid': (submitted && f['businessMixResidentialReplacement'].errors) || f['businessMixResidentialReplacement']?.invalid && (f['businessMixResidentialReplacement'].dirty || f['businessMixResidentialReplacement'].touched)}" >
       <span class="input-group-text">%</span>
-    </div>
+        </div>
+  </div>
+  <div *ngIf="submitted && f['businessMixResidentialReplacement'].errors" class="invalid-feedback">
+    <div *ngIf="f['businessMixResidentialReplacement'].errors['required']">Residential Replacement</div>
   </div>
   <label  class="col-sm-8 col-form-label" style="padding-bottom: 10px">Residential New Construction: </label>
   <div class="col-sm-4" >
     <div class="input-group mb-3">
-      <input class="form-control" type="text" formControlName="ownerName">
+      <input class="form-control" type="text" formControlName="businessMixResidentialNewConstruction"
+             [ngClass]="{ 'is-invalid': (submitted && f['businessMixResidentialNewConstruction'].errors) || f['businessMixResidentialNewConstruction']?.invalid && (f['businessMixResidentialNewConstruction'].dirty || f['businessMixResidentialNewConstruction'].touched)}" >
       <span class="input-group-text">%</span>
     </div>
+  </div>
+  <div *ngIf="submitted && f['businessMixResidentialNewConstruction'].errors" class="invalid-feedback">
+    <div *ngIf="f['businessMixResidentialNewConstruction'].errors['required']">Residential New Construction is required</div>
   </div>
   <label  class="col-sm-8 col-form-label" style="padding-bottom: 10px">Commercial: </label>
   <div class="col-sm-4" >
     <div class="input-group mb-3">
-      <input class="form-control" type="text" formControlName="ownerName">
+      <input class="form-control" type="text" formControlName="businessMixCommercial"
+             [ngClass]="{ 'is-invalid': (submitted && f['businessMixCommercial'].errors) || f['businessMixCommercial']?.invalid && (f['businessMixCommercial'].dirty || f['businessMixCommercial'].touched)}" >
       <span class="input-group-text">%</span>
     </div>
+  </div>
+  <div *ngIf="submitted && f['businessMixCommercial'].errors" class="invalid-feedback">
+    <div *ngIf="f['businessMixCommercial'].errors['required']">Commercial</div>
   </div>
   <label  class="col-sm-8 col-form-label" style="padding-bottom: 10px"><strong>Total:</strong> </label>
   <div class="col-sm-4">
     <div class="input-group mb-3">
-      <input class="form-control" type="text" formControlName="ownerName">
+      <input class="form-control" type="text" value="{{+f['businessMixResidentialReplacement'].value + +f['businessMixCommercial'].value + +f['businessMixResidentialNewConstruction'].value }}">
       <span class="input-group-text">%</span>
     </div>
   </div>
@@ -150,10 +184,11 @@
       </div>
       <div class="owners-form">
         <div class="form-group row element">
-          <label  class="col-sm-4 col-form-label">P.O NUMBER REQUIRED? <span class="mandatory">* </span> </label>
+          <label  class="col-sm-4 col-form-label">PURCHASE REQUIRED? <span class="mandatory">* </span> </label>
           <div class="col-sm-2">
             <div class="form-check">
-              <input class="form-check-input" type="radio"  value="1" formControlName="ownerName">
+              <input class="form-check-input" type="radio"  value="1" formControlName="purchaseRequired"
+                     [ngClass]="{ 'is-invalid': (submitted && f['purchaseRequired'].errors) || f['purchaseRequired']?.invalid && (f['purchaseRequired'].dirty || f['purchaseRequired'].touched)}" >
               <label class="form-check-label">
                Yes
               </label>
@@ -161,14 +196,15 @@
           </div>
           <div class="col-sm-6">
             <div class="form-check">
-              <input class="form-check-input" type="radio"  value="2" formControlName="ownerName">
+              <input class="form-check-input" type="radio"  value="2" formControlName="purchaseRequired"
+                     [ngClass]="{ 'is-invalid': (submitted && f['purchaseRequired'].errors) || f['purchaseRequired']?.invalid && (f['purchaseRequired'].dirty || f['purchaseRequired'].touched)}" >
               <label class="form-check-label">
                 No
               </label>
             </div>
           </div>
-          <div *ngIf="submitted && f['ownerName'].errors" class="invalid-feedback">
-            <div *ngIf="f['ownerName'].errors['required']">Owner/Principle Name is required</div>
+          <div *ngIf="submitted && f['purchaseRequired'].errors" class="invalid-feedback">
+            <div *ngIf="f['purchaseRequired'].errors['required']">Purchase is required</div>
           </div>
         </div>
         <div class="form-check" style="padding-bottom: 20px;">
@@ -177,24 +213,37 @@
             I have verified the following certification and license information is accurate
             and have obtained a copy of each for branch records
           </label>
+          <div *ngIf="submitted && f['licenseAccept'].errors" class="invalid-feedback">
+            <div *ngIf="f['licenseAccept'].errors['required']">Please Accept License</div>
+          </div>
         </div>
+
         <div class="form-group row element">
-          <label for="inputPassword" class="col-sm-4 col-form-label">EPA Certification Issued To <span class="mandatory">* </span>  </label>
+          <label class="col-sm-4 col-form-label">EPA Certification Issued To <span class="mandatory">* </span>  </label>
           <div class="col-sm-8">
-            <input type="text" class="form-control"  placeholder="Enter EPA Certification">
+            <input type="text" class="form-control"  placeholder="Enter EPA Certification" formControlName="epaCertificationTo"
+                   [ngClass]="{ 'is-invalid': (submitted && f['epaCertificationTo'].errors) || f['epaCertificationTo']?.invalid && (f['epaCertificationTo'].dirty || f['epaCertificationTo'].touched)}" >
+            <div *ngIf="submitted && f['epaCertificationTo'].errors" class="invalid-feedback">
+              <div *ngIf="f['epaCertificationTo'].errors['required']">EPA Certification To is required</div>
+            </div>
           </div>
         </div>
         <div class="form-group row element">
-          <label for="inputPassword" class="col-sm-4 col-form-label">EPA Certification<span class="mandatory">* </span>  </label>
+          <label class="col-sm-4 col-form-label">EPA Certification<span class="mandatory">* </span>  </label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" placeholder="Enter EPA Certification">
+            <input type="text" class="form-control" placeholder="Enter EPA Certification" formControlName="epaCertification"
+                   [ngClass]="{ 'is-invalid': (submitted && f['epaCertification'].errors) || f['epaCertification']?.invalid && (f['epaCertification'].dirty || f['epaCertification'].touched)}" >
+            <div *ngIf="submitted && f['epaCertification'].errors" class="invalid-feedback">
+              <div *ngIf="f['epaCertification'].errors['required']">EPA Certification is required</div>
+            </div>
           </div>
         </div>
         <div class="form-group row element">
           <label class="col-sm-4 col-form-label"> </label>
           <div class="col-sm-8">
             <div class="form-check" style="padding-bottom:10px;">
-              <input class="form-check-input" type="checkbox" value="">
+              <input class="form-check-input" type="checkbox" value="" formControlName="notValidEPA"
+                     [ngClass]="{ 'is-invalid': (submitted && f['notValidEPA'].errors) || f['notValidEPA']?.invalid && (f['notValidEPA'].dirty || f['notValidEPA'].touched)}" >
               <label class="form-check-label" for="flexCheckDefault">
                 Not Valid EPA
               </label>
@@ -202,9 +251,13 @@
           </div>
         </div>
         <div class="form-group row element">
-          <label for="inputPassword" class="col-sm-4 col-form-label">Expiration date (MM/DD/YY). </label>
+          <label class="col-sm-4 col-form-label">Expiration date (MM/DD/YY). </label>
           <div class="col-sm-6">
-            <input type="text" class="form-control"  placeholder="Enter Expiration">
+            <input type="text" class="form-control"  placeholder="Enter Expiration" formControlName="epaExpirationDate"
+                   [ngClass]="{ 'is-invalid': (submitted && f['epaExpirationDate'].errors) || f['epaExpirationDate']?.invalid && (f['epaExpirationDate'].dirty || f['epaExpirationDate'].touched)}" >
+            <div *ngIf="submitted && f['epaExpirationDate'].errors" class="invalid-feedback">
+              <div *ngIf="f['epaExpirationDate'].errors['required']">EPA Expiration Date is required</div>
+            </div>
           </div>
           <div class="col-sm-2">
             <div class="form-check">
@@ -216,27 +269,39 @@
           </div>
         </div>
         <div class="form-group row element">
-          <label for="inputPassword" class="col-sm-4 col-form-label">Contractors License# * <span class="mandatory">* </span>  </label>
+          <label class="col-sm-4 col-form-label">Contractors License# * <span class="mandatory">* </span>  </label>
           <div class="col-sm-8">
-            <input type="text" class="form-control"  placeholder="Enter Contractors License">
+            <input type="text" class="form-control"  placeholder="Enter Contractors License" formControlName="contractorsLicense"
+                   [ngClass]="{ 'is-invalid': (submitted && f['contractorsLicense'].errors) || f['contractorsLicense']?.invalid && (f['contractorsLicense'].dirty || f['contractorsLicense'].touched)}" >
+            <div *ngIf="submitted && f['contractorsLicense'].errors" class="invalid-feedback">
+              <div *ngIf="f['contractorsLicense'].errors['required']">Contractors License is required</div>
+            </div>
           </div>
         </div>
         <div class="form-group row element">
-          <label for="inputPassword" class="col-sm-4 col-form-label">Expiration date (MM/DD/YY). </label>
+          <label  class="col-sm-4 col-form-label">Expiration date (MM/DD/YY). </label>
           <div class="col-sm-8">
-            <input type="text" class="form-control"  placeholder="Enter Expiration">
+            <input type="text" class="form-control"  placeholder="Enter Expiration" formControlName="contractorsExpirationDate"
+                   [ngClass]="{ 'is-invalid': (submitted && f['contractorsExpirationDate'].errors) || f['contractorsExpirationDate']?.invalid && (f['contractorsExpirationDate'].dirty || f['contractorsExpirationDate'].touched)}" >
+            <div *ngIf="submitted && f['contractorsExpirationDate'].errors" class="invalid-feedback">
+              <div *ngIf="f['contractorsExpirationDate'].errors['required']">Contractors Expiration Date is required</div>
+            </div>
           </div>
         </div>
         <div style="padding-left: 125px">
           <h5>All new accounts are taxable until copy of tax certificates</h5>
         </div>
         <div class="form-group row element">
-          <label for="inputPassword" class="col-sm-4 col-form-label">Additional email notification  </label>
+          <label  class="col-sm-4 col-form-label">Additional email notification  </label>
           <div class="col-sm-8">
             <div class="input-group mb-3">
               <input type="text" class="form-control"
-                     placeholder="Search" id="inputGroup"/>
+                     placeholder="Search" id="inputGroup" formControlName="additionalEmailNotification"
+                     [ngClass]="{ 'is-invalid': (submitted && f['additionalEmailNotification'].errors) || f['additionalEmailNotification']?.invalid && (f['additionalEmailNotification'].dirty || f['additionalEmailNotification'].touched)}" >
               <span class="input-group-text"> <i class="fa fa-search"></i></span>
+            </div>
+            <div *ngIf="submitted && f['additionalEmailNotification'].errors" class="invalid-feedback">
+              <div *ngIf="f['additionalEmailNotification'].errors['required']">Additional Email Notification is required</div>
             </div>
           </div>
         </div>
@@ -244,7 +309,7 @@
 
     </div>
 
-    <div style="padding-left: 800px">  <button class="btn btn-primary float-right" >Next</button>
+    <div style="padding-left: 800px">  <button class="btn btn-primary float-right" >Submit</button>
     </div>
   </form>
 </div>

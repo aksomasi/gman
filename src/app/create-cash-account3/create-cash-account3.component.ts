@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {CashAccountServiceService} from "../cash-account-service.service";
 
 @Component({
   selector: 'app-create-cash-account3',
@@ -12,11 +13,14 @@ export class CreateCashAccount3Component implements OnInit {
   cashAccountForm1: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder,
+              private cashAccountServiceService: CashAccountServiceService) {}
 
   ngOnInit(): void {
     this.cashAccountForm1 = this.formBuilder.group(
       {
+        companyLegalName: ['', Validators.required],
+        ownerName: ['', Validators.required],
         dealerInfo2018HVACPurchases: ['', Validators.required],
         dealerInfo2018YorkPurchases: ['', Validators.required],
         dealerInfo2018TotalYorkPurchases: ['', Validators.required],
@@ -45,6 +49,11 @@ export class CreateCashAccount3Component implements OnInit {
   }
   onSubmit(){
     this.submitted = true;
-    console.log(this.cashAccountForm1)
+    const data = this.cashAccountServiceService.getTotalData();
+    data.form1 = this.cashAccountForm1.value;
+    this.cashAccountServiceService.setTotalData(data)
+    const finalData = this.cashAccountServiceService.getTotalData();
+    const totalData = {...finalData.form1, ...finalData.form2,...finalData.form3}
+    console.log(totalData)
   }
 }
