@@ -1,5 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeflex/primeflex.scss";
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/prismjs/themes/prism-coy.css";
+
+
+html, body { height: 100%; }
+.p-datatable .p-datatable-tbody > tr > td {
+  text-align: center !important;
+  padding: 0.5rem 0.5rem !important;
+}
+.p-datatable .p-datatable-thead > tr > th {
+  text-align: center !important;
+}
+
+.p-button {
+  padding: 0.25rem 0.25rem !important;
+}
+
 
 .example-form {
   min-width: 150px;

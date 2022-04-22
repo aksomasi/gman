@@ -10,18 +10,41 @@ import { CreateCashAccount3Component } from './create-cash-account3/create-cash-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatInputModule} from "@angular/material/input";
+import { ViewInquireComponent } from './view-inquire/view-inquire.component';
+import {CarouselModule} from "primeng/carousel";
+import {TableModule} from "primeng/table";
+import {ToolbarModule} from "primeng/toolbar";
+import {FieldsetModule} from "primeng/fieldset";
+import {InputTextModule} from "primeng/inputtext";
+import {InputMaskModule} from "primeng/inputmask";
+import {ButtonModule} from "primeng/button";
+import {DividerModule} from 'primeng/divider';
+import {CalendarModule} from 'primeng/calendar';
+import {DropdownModule} from 'primeng/dropdown';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateCashAccountComponent,
     CreateCashAccount2Component,
-    CreateCashAccount3Component
+    CreateCashAccount3Component,
+    ViewInquireComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
+    CarouselModule,
+    CalendarModule,
+    DropdownModule,
+    TableModule,
+    FieldsetModule,
+    DividerModule,
+    ToolbarModule,
+    InputTextModule,
+    InputMaskModule,
+    ButtonModule,
     MatAutocompleteModule,
     MatInputModule,
     AppRoutingModule,

@@ -1,0 +1,74 @@
+  <div >
+    <div class="row">
+      <div class="field col-3 md:col-3">
+        <p-calendar placeholder="Select Start Date"></p-calendar>
+
+      </div>
+      <div class="field col-3 md:col-3">
+        <p-calendar placeholder="Select End Date"></p-calendar>
+      </div>
+    </div>
+</div>
+
+
+
+  <div class="">
+    <div class="row">
+      <div class="field col-3 md:col-3">
+        <p-dropdown [options]="statuses"  [(ngModel)]="selectedStatus" optionLabel="name">
+
+        </p-dropdown>
+      </div>
+      <div class="field col-3 md:col-3">
+        <p-dropdown [options]="divisions"  [(ngModel)]="selectedDivision" optionLabel="name"></p-dropdown>
+      </div>
+      <div class="field col-3 md:col-3">
+        <button pButton pRipple type="button" label="Search" class="p-button-raised"></button>&nbsp;&nbsp;
+        <button pButton pRipple type="button" label="Clear" class="p-button-raised"></button>
+
+      </div>
+      <div class="field col-3 md:col-3">
+        <button pButton pRipple type="button" label="Export" class="p-button-raised"></button>
+
+      </div>
+    </div>
+  </div>
+
+<p-divider></p-divider>
+<div class="container">
+  <div class="card">
+    <h5>Implicit Pagination</h5>
+    <p-table [value]="data" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll"
+              [rowsPerPageOptions]="[5,10,25,50]">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Division</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+          <th>Action</th>
+          <th>Overaction Points</th>
+          <th>Applied By</th>
+          <th>Applied By</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-inquire>
+        <tr>
+          <td>{{inquire.brDivision}}</td>
+          <td>{{inquire.createdte}}</td>
+          <td>{{inquire.createdte}}</td>
+          <td>{{inquire.status}}</td>
+          <td>        <button pButton pRipple type="button" label="Download" class="p-button-raised"></button>
+          </td>
+          <td> <button pButton pRipple type="button" label="Apply" class="p-button-raised"></button></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+      </ng-template>
+    </p-table>
+  </div>
+</div>

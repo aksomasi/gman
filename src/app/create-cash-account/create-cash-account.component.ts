@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {CashAccountServiceService} from "../cash-account-service.service";
@@ -8,14 +8,29 @@ import {CashAccountServiceService} from "../cash-account-service.service";
   templateUrl: './create-cash-account.component.html',
   styleUrls: ['./create-cash-account.component.scss']
 })
-export class CreateCashAccountComponent implements OnInit {
+export class CreateCashAccountComponent implements OnInit , OnChanges{
 
   // @ts-ignore
   cashAccountForm1: FormGroup;
   submitted = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router,
-  private cashAccountServiceService: CashAccountServiceService) {}
+  private cashAccountServiceService: CashAccountServiceService) {
+    const data = [
+      { name: 'Aouston Rockets', age: 45 },
+      { name: 'Phoenix Suns', age: 10 },
+      { name: 'Los Angeles Lakers', age: 93 },
+      { name: 'Utah Jazz', age: 10 },
+      { name: 'Bolden State Warriors', age: 6 },
+      { name: 'aenver Nuggets', age: 10 },
+    ]
+    const sortedData = data.sort(
+      (user1, user2) =>
+        user2.age - user1.age ||
+        user1.name.localeCompare(user2.name),
+    )
+    console.log(sortedData)
+  }
 
   ngOnInit(): void {
     this.cashAccountForm1 = this.formBuilder.group(
@@ -49,5 +64,8 @@ export class CreateCashAccountComponent implements OnInit {
       this.router.navigateByUrl('create-cash2',{skipLocationChange: true})
     }
 
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
   }
 }
