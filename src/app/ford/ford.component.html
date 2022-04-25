@@ -1,0 +1,28 @@
+
+<div class="container">
+  <div class="card">
+    <h5>Implicit Pagination</h5>
+    <p-table [value]="rows" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll"
+             [rowsPerPageOptions]="[5,10,25,50]">
+      <ng-template pTemplate="header">
+        <tr>
+          <th></th>
+          <th *ngFor="let col of columns">{{col}}</th>
+     </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-row let-ri="rowIndex">
+        <tr>
+          <td>{{row}}</td>
+          <td *ngFor="let col of response.result.columns">
+            {{col.values[ri]}}
+          </td>
+
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+      </ng-template>
+    </p-table>
+  </div>
+</div>

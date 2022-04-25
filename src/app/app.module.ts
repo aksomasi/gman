@@ -21,6 +21,7 @@ import {ButtonModule} from "primeng/button";
 import {DividerModule} from 'primeng/divider';
 import {CalendarModule} from 'primeng/calendar';
 import {DropdownModule} from 'primeng/dropdown';
+import { FordComponent } from './ford/ford.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {DropdownModule} from 'primeng/dropdown';
     CreateCashAccountComponent,
     CreateCashAccount2Component,
     CreateCashAccount3Component,
-    ViewInquireComponent
+    ViewInquireComponent,
+    FordComponent
   ],
   imports: [
     BrowserModule,

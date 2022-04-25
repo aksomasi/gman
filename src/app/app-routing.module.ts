@@ -4,6 +4,7 @@ import {CreateCashAccountComponent} from "./create-cash-account/create-cash-acco
 import {CreateCashAccount3Component} from "./create-cash-account3/create-cash-account3.component";
 import {CreateCashAccount2Component} from "./create-cash-account2/create-cash-account2.component";
 import {ViewInquireComponent} from "./view-inquire/view-inquire.component";
+import {FordComponent} from "./ford/ford.component";
 
 
 const routes: Routes = [
@@ -12,6 +13,8 @@ const routes: Routes = [
   {path: 'create-cash2', component: CreateCashAccount2Component},
   {path: 'create-cash3', component: CreateCashAccount3Component},
   {path: 'inquire', component: ViewInquireComponent},
+  {path: 'ford', component: FordComponent},
+
 
 ];
 
