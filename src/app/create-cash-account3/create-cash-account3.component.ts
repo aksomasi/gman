@@ -52,7 +52,7 @@ export class CreateCashAccount3Component implements OnInit {
     this.totalBusiness = +controls['businessMixResidentialReplacement'].value + +controls['businessMixCommercial'].value + +controls['businessMixResidentialNewConstruction'].value
     if(this.cashAccountForm1.valid && this.totalBusiness === 100) {
       const data = this.cashAccountServiceService.getTotalData();
-      data.form1 = this.cashAccountForm1.value;
+      data.form3 = this.cashAccountForm1.value;
       this.cashAccountServiceService.setTotalData(data)
       const finalData = this.cashAccountServiceService.getTotalData();
       const totalData = {...finalData.form1, ...finalData.form2,...finalData.form3};
