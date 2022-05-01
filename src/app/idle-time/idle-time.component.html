@@ -1,0 +1,4 @@
+<p>idle-time works!</p>
+<p><strong>{{idleState}}</strong></p>
+<button (click)="reset()" *ngIf="isLock">Lock</button>
+<button (click)="reset()" *ngIf="!isLock">Unlock</button>

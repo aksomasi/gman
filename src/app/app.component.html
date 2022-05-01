@@ -1,5 +1,10 @@
 <div class="app container">
-  <div class="header-title"><h3>Cash Account</h3></div>
+  <div class="header-title">
+    <h3 *ngIf="router.url !== '/sales-use'">Cash Account</h3>
+    <h3 *ngIf="router.url === '/sales-use'">For Sales Use Only </h3>
+
+  </div>
+
 <!--  <form class="example-form" >-->
 <!--    jhh-->
 <!--    <mat-form-field class="example-full-width">-->

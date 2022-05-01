@@ -22,6 +22,10 @@ import {DividerModule} from 'primeng/divider';
 import {CalendarModule} from 'primeng/calendar';
 import {DropdownModule} from 'primeng/dropdown';
 import { FordComponent } from './ford/ford.component';
+import { SalesUseOnlyComponent } from './sales-use-only/sales-use-only.component';
+import { IdleTimeComponent } from './idle-time/idle-time.component';
+import {NgIdleModule} from "@ng-idle/core";
+import {TitleCasePipe, UpperCasePipe} from "@angular/common";
 
 
 @NgModule({
@@ -31,10 +35,13 @@ import { FordComponent } from './ford/ford.component';
     CreateCashAccount2Component,
     CreateCashAccount3Component,
     ViewInquireComponent,
-    FordComponent
+    FordComponent,
+    SalesUseOnlyComponent,
+    IdleTimeComponent
   ],
   imports: [
     BrowserModule,
+    NgIdleModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     CarouselModule,
@@ -52,7 +59,7 @@ import { FordComponent } from './ford/ford.component';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [TitleCasePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

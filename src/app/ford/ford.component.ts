@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+// @ts-ignore
+import * as fs from 'file-saver';
+import {TitleCasePipe, UpperCasePipe} from "@angular/common";
 @Component({
   selector: 'app-ford',
   templateUrl: './ford.component.html',
@@ -28,17 +30,67 @@ export class FordComponent implements OnInit {
   ];
 
   data = mockData;
-
-  constructor() {
+  exportColumns: any[] = [];
+  constructor(private titleCase: TitleCasePipe) {
     this.response = dummyData;
-    this.columns = dummyData.result.columns.map(value =>value.key);
+    this.columns = dummyData.result.columns.map(value => value.key);
     this.rows = dummyData.result.rows;
     console.log(this.columns);
+    this.exportColumns = this.columns.map(col => ({
+      title: col,
+      dataKey: col
+    }));
   }
 
   ngOnInit(): void {
   }
 
+
+
+  exportExcel() {
+
+    import("xlsx").then(xlsx => {
+      const worksheet = xlsx.utils.json_to_sheet(this.transformObject(this.response.result));
+      const workbook = { Sheets: { order_summary: worksheet }, SheetNames: ["order_summary"] };
+      const excelBuffer: any = xlsx.write(workbook, {
+        bookType: "xlsx",
+        type: "array"
+      });
+      this.saveAsExcelFile(excelBuffer, "order-summary");
+    });
+  }
+
+  transformObject( result: { rows: string[]; columns: { key: string; values: number[]; }[]; }): OutputObj[] {
+    const outputRows: OutputObj[]=[];
+    result.rows.forEach((row,index)=>{
+      const outputRow: OutputObj= {};
+      outputRow['']= this.titleCase.transform(row.replace('_',' '));
+      result.columns.forEach(column=>{
+        outputRow[column.key]= column.values[index]
+      })
+      outputRows.push(outputRow);
+    });
+    return outputRows;
+  }
+  saveAsExcelFile(buffer: any, fileName: string): void {
+    // @ts-ignore
+    import("file-saver").then(FileSaver => {
+      let EXCEL_TYPE =
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
+      let EXCEL_EXTENSION = ".xlsx";
+      const data: Blob = new Blob([buffer], {
+        type: EXCEL_TYPE
+      });
+      fs.saveAs(
+        data,
+        fileName + "_export_" + new Date().getTime() + EXCEL_EXTENSION
+      );
+    });
+  }
+
+}
+export interface OutputObj {
+  [key: string]: any
 }
 export const dummyData =
   {
@@ -50,6 +102,7 @@ export const dummyData =
         "purchases",
         "bod"
       ],
+
       columns: [
         {
           key: "Total F-150",

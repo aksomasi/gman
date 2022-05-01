@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AddressService} from "./address.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent {
   addressOptions = <any>[];
   address: string = '';
 
-  constructor(private _commonService: AddressService) { }
+  constructor(public router: Router, private _commonService: AddressService) { }
 
   ngOnInit() {
   }
