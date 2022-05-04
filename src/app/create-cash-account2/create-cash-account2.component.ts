@@ -33,7 +33,12 @@ export class CreateCashAccount2Component implements OnInit {
         bState: ['', Validators.required],
         bZipcode: ['', Validators.required]}
     );
+    const data = this.cashAccountServiceService.getTotalData();
+    if(data.form2){
+      this.cashAccountForm2.setValue(data.form2);
     }
+    }
+
 
   get f(): { [key: string]: AbstractControl } {
     return this.cashAccountForm2.controls;
@@ -45,10 +50,12 @@ export class CreateCashAccount2Component implements OnInit {
       const data = this.cashAccountServiceService.getTotalData();
       data.form2 = this.cashAccountForm2.value;
       this.cashAccountServiceService.setTotalData(data)
-      this.router.navigateByUrl('create-cash3',{skipLocationChange: true})
+      this.router.navigateByUrl('create-cash3',)
     }
   }
-
+  back(){
+    this.router.navigateByUrl('create-cash',)
+  }
   saveBilling(event: any){
     console.log(event);
   this.isChecked = event.target.checked;

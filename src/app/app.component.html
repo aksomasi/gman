@@ -2,7 +2,8 @@
   <div class="header-title">
     <h3 *ngIf="router.url !== '/sales-use'">Cash Account</h3>
     <h3 *ngIf="router.url === '/sales-use'">For Sales Use Only </h3>
-
+{{name}}
+    <span [innerHTML]="name"></span>
   </div>
 
 <!--  <form class="example-form" >-->

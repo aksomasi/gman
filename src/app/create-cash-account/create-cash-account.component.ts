@@ -49,6 +49,10 @@ export class CreateCashAccountComponent implements OnInit , OnChanges{
 
       }
     );
+    const data = this.cashAccountServiceService.getTotalData();
+    if(data.form1){
+    this.cashAccountForm1.setValue(data.form1);
+    }
   }
 
   get f(): { [key: string]: AbstractControl } {
@@ -61,7 +65,7 @@ export class CreateCashAccountComponent implements OnInit , OnChanges{
       const data = this.cashAccountServiceService.getTotalData();
       data.form1 = this.cashAccountForm1.value;
       this.cashAccountServiceService.setTotalData(data)
-      this.router.navigateByUrl('create-cash2',{skipLocationChange: true})
+      this.router.navigateByUrl('create-cash2',)
     }
 
   }

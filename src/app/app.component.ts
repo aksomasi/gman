@@ -12,6 +12,8 @@ export class AppComponent {
   addressOptions = <any>[];
   address: string = '';
 
+  name = `sfsd <u> dsfds </u>`;
+
   constructor(public router: Router, private _commonService: AddressService) { }
 
   ngOnInit() {
