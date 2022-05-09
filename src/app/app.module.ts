@@ -10,7 +10,7 @@ import { CreateCashAccount3Component } from './create-cash-account3/create-cash-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatInputModule} from "@angular/material/input";
-import { ViewInquireComponent } from './view-inquire/view-inquire.component';
+import { ViewInquireComponent } from './admin/view-inquire/view-inquire.component';
 import {CarouselModule} from "primeng/carousel";
 import {TableModule} from "primeng/table";
 import {ToolbarModule} from "primeng/toolbar";
@@ -22,7 +22,7 @@ import {DividerModule} from 'primeng/divider';
 import {CalendarModule} from 'primeng/calendar';
 import {DropdownModule} from 'primeng/dropdown';
 import { FordComponent } from './ford/ford.component';
-import { SalesUseOnlyComponent } from './sales-use-only/sales-use-only.component';
+import { SalesUseOnlyComponent } from './admin/sales-use-only/sales-use-only.component';
 import { IdleTimeComponent } from './idle-time/idle-time.component';
 import {NgIdleModule} from "@ng-idle/core";
 import {TitleCasePipe, UpperCasePipe} from "@angular/common";
@@ -34,9 +34,7 @@ import {TitleCasePipe, UpperCasePipe} from "@angular/common";
     CreateCashAccountComponent,
     CreateCashAccount2Component,
     CreateCashAccount3Component,
-    ViewInquireComponent,
     FordComponent,
-    SalesUseOnlyComponent,
     IdleTimeComponent
   ],
   imports: [
@@ -60,6 +58,7 @@ import {TitleCasePipe, UpperCasePipe} from "@angular/common";
     BrowserAnimationsModule
   ],
   providers: [TitleCasePipe],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

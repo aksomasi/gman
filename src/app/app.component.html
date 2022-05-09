@@ -1,9 +1,9 @@
 <div class="app container">
   <div class="header-title">
-    <h3 *ngIf="router.url !== '/sales-use'">Cash Account</h3>
-    <h3 *ngIf="router.url === '/sales-use'">For Sales Use Only </h3>
-{{name}}
-    <span [innerHTML]="name"></span>
+
+
+    <h3 *ngIf="router.url === '/'">Cash Account</h3>
+    <h3 *ngIf="router.url === '/sales-use' || router.url !== '/admin'">For Sales Use Only </h3>
   </div>
 
 <!--  <form class="example-form" >-->

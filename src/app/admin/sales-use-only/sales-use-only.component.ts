@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {CashAccountServiceService} from "../cash-account-service.service";
+import {CashAccountServiceService} from "../../cash-account-service.service";
 
 @Component({
   selector: 'app-sales-use-only',
