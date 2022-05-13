@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {CashAccountServiceService} from "../cash-account-service.service";
+import {DialogService, DynamicDialogRef} from "primeng/dynamicdialog";
+import {MessageService} from "primeng/api";
+import {AddressValidationDialogComponent} from "../address-validation-dialog/address-validation-dialog.component";
 
 @Component({
   selector: 'app-create-cash-account2',
@@ -9,12 +12,16 @@ import {CashAccountServiceService} from "../cash-account-service.service";
   styleUrls: ['./create-cash-account2.component.scss']
 })
 export class CreateCashAccount2Component implements OnInit {
+  @Input() readonly! : boolean;
+
   isChecked =  false;
   // @ts-ignore
   cashAccountForm2: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router,
+  ref!: DynamicDialogRef;
+
+  constructor(public dialogService: DialogService, private formBuilder: FormBuilder, private router: Router,
               private cashAccountServiceService: CashAccountServiceService) {}
 
   ngOnInit(): void {
@@ -39,6 +46,20 @@ export class CreateCashAccount2Component implements OnInit {
     }
     }
 
+  validateAddress(){
+    this.ref = this.dialogService.open(AddressValidationDialogComponent, {
+      header: 'Address Check',
+      width: '70%',
+      contentStyle: {"max-height": "500px", "overflow": "auto"},
+      baseZIndex: 10000
+    });
+
+    this.ref.onClose.subscribe((product: any) =>{
+      if (product) {
+       // this.messageService.add({severity:'info', summary: 'Product Selected', detail: product.name});
+      }
+    });
+  }
 
   get f(): { [key: string]: AbstractControl } {
     return this.cashAccountForm2.controls;

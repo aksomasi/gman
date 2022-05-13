@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CashAccountServiceService} from "../cash-account-service.service";
 import {Router} from "@angular/router";
@@ -10,6 +10,8 @@ import {Router} from "@angular/router";
 })
 export class CreateCashAccount3Component implements OnInit {
 
+  @Input() readonly! : boolean;
+
   // @ts-ignore
   cashAccountForm1: FormGroup;
   submitted = false;
@@ -20,26 +22,26 @@ export class CreateCashAccount3Component implements OnInit {
   ngOnInit(): void {
     this.cashAccountForm1 = this.formBuilder.group(
       {
-        dealerInfo2018HVACPurchases: ['', Validators.required],
-        dealerInfo2018YorkPurchases: ['', Validators.required],
-        dealerInfo2018TotalYorkPurchases: ['', Validators.required],
-        dealerInfo2019YorkPurchases: ['', Validators.required],
-        hvacPrimaryBrand: ['', Validators.required],
-        hvacSecondaryBrand: ['', Validators.required],
-        hvacOther: [''],
-        businessMixResidentialReplacement: ['', Validators.required],
-        businessMixResidentialNewConstruction: ['', Validators.required],
-        businessMixCommercial: ['', Validators.required],
-        businessMixTotal: ['', Validators.max(100)],
-        purchaseRequired: ['', Validators.required],
-        licenseAccept: ['', Validators.required],
-        epaCertificationTo: ['', Validators.required],
-        epaCertification: ['', Validators.required],
-        notValidEPA: ['', Validators.required],
-        epaExpirationDate: ['', Validators.required],
-        contractorsLicense: ['', Validators.required],
-        contractorsExpirationDate: ['', Validators.required],
-        additionalEmailNotification: ['', Validators.required],
+        dealerInfo2018HVACPurchases: [{value: '', disabled: this.readonly}, Validators.required],
+        dealerInfo2018YorkPurchases: [{value: '', disabled: this.readonly}, Validators.required],
+        dealerInfo2018TotalYorkPurchases: [{value: '', disabled: this.readonly}, Validators.required],
+        dealerInfo2019YorkPurchases: [{value: '', disabled: this.readonly}, Validators.required],
+        hvacPrimaryBrand: [{value: '', disabled: this.readonly}, Validators.required],
+        hvacSecondaryBrand: [{value: '', disabled: this.readonly},  Validators.required],
+        hvacOther: [{value: '', disabled: this.readonly}, ],
+        businessMixResidentialReplacement: [{value: '', disabled: this.readonly},  Validators.required],
+        businessMixResidentialNewConstruction: [{value: '', disabled: this.readonly},  Validators.required],
+        businessMixCommercial: [{value: '', disabled: this.readonly},  Validators.required],
+        businessMixTotal: [{value: '', disabled: this.readonly},  Validators.max(100)],
+        purchaseRequired: [{value: '', disabled: this.readonly},  Validators.required],
+        licenseAccept: [{value: '', disabled: this.readonly}, Validators.required],
+        epaCertificationTo: [{value: '', disabled: this.readonly}, Validators.required],
+        epaCertification: [{value: '', disabled: this.readonly},  Validators.required],
+        notValidEPA: [{value: '', disabled: this.readonly},  Validators.required],
+        epaExpirationDate: [{value: '', disabled: this.readonly},  Validators.required],
+        contractorsLicense: [{value: '', disabled: this.readonly}, Validators.required],
+        contractorsExpirationDate: [{value: '', disabled: this.readonly},  Validators.required],
+        additionalEmailNotification: [{value: '', disabled: this.readonly},  Validators.required],
       }
     );
   }
@@ -54,14 +56,11 @@ export class CreateCashAccount3Component implements OnInit {
     this.submitted = true;
    const controls =  this.cashAccountForm1.controls;
     this.totalBusiness = +controls['businessMixResidentialReplacement'].value + +controls['businessMixCommercial'].value + +controls['businessMixResidentialNewConstruction'].value
-    if(this.cashAccountForm1.valid && this.totalBusiness === 100) {
       const data = this.cashAccountServiceService.getTotalData();
       data.form3 = this.cashAccountForm1.value;
       this.cashAccountServiceService.setTotalData(data)
       const finalData = this.cashAccountServiceService.getTotalData();
       const totalData = {...finalData.form1, ...finalData.form2,...finalData.form3};
       console.log(totalData);
-    }
-
   }
 }

@@ -20,6 +20,7 @@ import {MatInputModule} from "@angular/material/input";
 import {AppModule} from "../app.module";
 import {ViewInquireComponent} from "./view-inquire/view-inquire.component";
 import {SalesUseOnlyComponent} from "./sales-use-only/sales-use-only.component";
+import {CrediCardApplicationComponent} from "./credi-card-application/credi-card-application.component";
 
 
 const routes: Routes = [
@@ -31,7 +32,9 @@ const routes: Routes = [
   declarations: [
     AdminComponent,
     ViewInquireComponent,
-    SalesUseOnlyComponent
+    SalesUseOnlyComponent,
+    CrediCardApplicationComponent
+
   ],
   imports: [
     CommonModule,

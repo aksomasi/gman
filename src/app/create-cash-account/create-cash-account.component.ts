@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {CashAccountServiceService} from "../cash-account-service.service";
@@ -9,6 +9,7 @@ import {CashAccountServiceService} from "../cash-account-service.service";
   styleUrls: ['./create-cash-account.component.scss']
 })
 export class CreateCashAccountComponent implements OnInit , OnChanges{
+  @Input() readonly! : boolean;
 
   // @ts-ignore
   cashAccountForm1: FormGroup;
@@ -35,10 +36,10 @@ export class CreateCashAccountComponent implements OnInit , OnChanges{
   ngOnInit(): void {
     this.cashAccountForm1 = this.formBuilder.group(
       {
-        companyLegalName : ['', Validators.required],
-        businessName : ['', Validators.required],
-        businessPhone : ['', Validators.required],
-        businessEmail : ['', Validators.required],
+        companyLegalName : [{value: '', disabled: true}, Validators.required],
+        businessName : [{value: '', disabled: true}, Validators.required],
+        businessPhone : [{value: '', disabled: true}, Validators.required],
+        businessEmail : [{value: '', disabled: true}, Validators.required],
         businessAccountType : ['', Validators.required],
         businessAccount : ['', Validators.required],
         businessFax : [''],

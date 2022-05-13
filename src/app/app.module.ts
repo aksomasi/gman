@@ -26,6 +26,9 @@ import { SalesUseOnlyComponent } from './admin/sales-use-only/sales-use-only.com
 import { IdleTimeComponent } from './idle-time/idle-time.component';
 import {NgIdleModule} from "@ng-idle/core";
 import {TitleCasePipe, UpperCasePipe} from "@angular/common";
+import { CrediCardApplicationComponent } from './admin/credi-card-application/credi-card-application.component';
+import {DialogService, DynamicDialogModule} from 'primeng/dynamicdialog';
+import { AddressValidationDialogComponent } from './address-validation-dialog/address-validation-dialog.component';
 
 
 @NgModule({
@@ -35,13 +38,15 @@ import {TitleCasePipe, UpperCasePipe} from "@angular/common";
     CreateCashAccount2Component,
     CreateCashAccount3Component,
     FordComponent,
-    IdleTimeComponent
+    IdleTimeComponent,
+    AddressValidationDialogComponent,
   ],
   imports: [
     BrowserModule,
     NgIdleModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    DynamicDialogModule,
     CarouselModule,
     CalendarModule,
     DropdownModule,
@@ -57,7 +62,7 @@ import {TitleCasePipe, UpperCasePipe} from "@angular/common";
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [TitleCasePipe],
+  providers: [TitleCasePipe, DialogService],
 
   bootstrap: [AppComponent]
 })

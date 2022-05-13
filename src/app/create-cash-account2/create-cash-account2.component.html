@@ -1,5 +1,5 @@
 <div class="container cash-account">
-  <form  [formGroup]="cashAccountForm2" (ngSubmit)="onSubmit()">
+  <form  [formGroup]="cashAccountForm2" >
     <div class="owners-info">
       <div class="alert alert-primary" role="alert">
         <strong>Shipping Address</strong>
@@ -28,11 +28,9 @@
             <div class="form-group row element">
               <label for="inputPassword" class="col-sm-3 col-form-label">City <span class="mandatory">* </span>  </label>
               <div class="col-sm-8">
-                <select class="form-control" formControlName="city"   [ngClass]="{ 'is-invalid': (submitted && f['city'].errors) || f['city'].invalid && (f['city'].dirty || f['city'].touched)}">
-                  <option value="">Select City</option>
-                  <option>Chicago</option>
-                  <option>WC</option>
-                </select>
+                <input type="text"  formControlName="city"
+                       class="form-control"
+                       [ngClass]="{ 'is-invalid': (submitted && f['city'].errors) || f['city'].invalid && (f['city'].dirty || f['city'].touched)}" placeholder="Enter City">
                 <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
                   <div *ngIf="f['city'].errors.required">Select City </div>
                 </div>
@@ -44,11 +42,9 @@
             <div class="form-group row element">
               <label for="inputPassword" class="col-sm-4 col-form-label">Country <span class="mandatory">* </span>  </label>
               <div class="col-sm-8">
-                <select class="form-control" formControlName="country" [ngClass]="{ 'is-invalid': (submitted && f['country'].errors) || f['country'].invalid && (f['country'].dirty || f['country'].touched)}">
-                  <option>Select Country</option>
-                  <option>USA</option>
-                  <option>Canada</option>
-                </select>
+                <input type="text"  formControlName="country"
+                       class="form-control"
+                       [ngClass]="{ 'is-invalid': (submitted && f['country'].errors) || f['country'].invalid && (f['country'].dirty || f['country'].touched)}" placeholder="Enter Country">
                 <div *ngIf="submitted && f['country'].errors" class="invalid-feedback">
                   <div *ngIf="f['country'].errors.required">Select Country </div>
                 </div>
@@ -63,11 +59,9 @@
             <div class="form-group row element">
               <label for="inputPassword" class="col-sm-3 col-form-label">State <span class="mandatory">* </span>  </label>
               <div class="col-sm-8">
-                <select class="form-control" formControlName="state" [ngClass]="{ 'is-invalid': (submitted && f['state'].errors) || f['state'].invalid && (f['state'].dirty || f['state'].touched)}">
-                  <option>Select State</option>
-                  <option>NY</option>
-                  <option>NJ</option>
-                </select>
+                <input type="text"  formControlName="state"
+                       class="form-control"
+                       [ngClass]="{ 'is-invalid': (submitted && f['state'].errors) || f['state'].invalid && (f['state'].dirty || f['state'].touched)}" placeholder="Enter State">
                 <div *ngIf="submitted && f['state'].errors" class="invalid-feedback">
                   <div *ngIf="f['state'].errors.required">Select State </div>
                 </div>
@@ -78,21 +72,22 @@
             <div class="form-group row element">
               <label for="inputPassword" class="col-sm-4 col-form-label">Zip code <span class="mandatory">* </span>  </label>
               <div class="col-sm-8">
-                <select class="form-control" formControlName="zipcode" [ngClass]="{ 'is-invalid': (submitted && f['zipcode'].errors) || f['zipcode'].invalid && (f['zipcode'].dirty || f['zipcode'].touched)}">
-                  <option>Select Zipcode</option>
-                  <option>52300</option>
-                  <option>58263</option>
-                </select>
+                <input type="text"  formControlName="zipcode"
+                       class="form-control"
+                       [ngClass]="{ 'is-invalid': (submitted && f['zipcode'].errors) || f['zipcode'].invalid && (f['zipcode'].dirty || f['zipcode'].touched)}" placeholder="Enter Zipcode">
+
                 <div *ngIf="submitted && f['zipcode'].errors" class="invalid-feedback">
                   <div *ngIf="f['zipcode'].errors.required">Select Zip Code </div>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
-
       </div>
-
+      <div style="padding-left: 700px">
+        <button class="btn btn-success" (click)="validateAddress()"> Validate </button>
+      </div>
     </div>
     <div class="same-address">
       <input type="checkbox" (change)="saveBilling($event)"> Billing Address same as Shipping Address
@@ -192,7 +187,7 @@
     </div >
     <div style="padding-left: 700px">
         <button class="btn btn-secondary" (click)="back()">Back</button>  &nbsp; &nbsp;&nbsp;
-        <button class="btn btn-primary" >Next</button>
+        <button class="btn btn-primary" (click)="onSubmit()">Next</button>
     </div>
   </form>
 </div>
